@@ -1,5 +1,5 @@
 # weather-app
-Weather App that will forecast weather for your zone entry using Node.js runtime.
+Weather app that will forecast weather for a location of your choice using Node.js runtime.
 <br>
 <br>
 <br>
