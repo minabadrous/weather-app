@@ -10,25 +10,23 @@ weatherForm.addEventListener("submit", (e) => {
     e.preventDefault();
     weatherForecast.textContent = "loading...";
 
-    fetch("http://localhost:3000/weather?address=" + weatherAddress.value).then(
-        (response) => {
-            response.json().then((data) => {
-                if (data.error)
-                    return (weatherForecast.textContent = data.error.error);
+    fetch("/weather?address=" + weatherAddress.value).then((response) => {
+        response.json().then((data) => {
+            if (data.error)
+                return (weatherForecast.textContent = data.error.error);
 
-                const { describtion, feelslike, temperature, location } = data;
-                const forecast =
-                    location +
-                    " is " +
-                    describtion +
-                    ". It is " +
-                    temperature +
-                    " but, it feels like " +
-                    feelslike +
-                    " out there.";
+            const { describtion, feelslike, temperature, location } = data;
+            const forecast =
+                location +
+                " is " +
+                describtion +
+                ". It is " +
+                temperature +
+                " but, it feels like " +
+                feelslike +
+                " out there.";
 
-                weatherForecast.textContent = forecast;
-            });
-        }
-    );
+            weatherForecast.textContent = forecast;
+        });
+    });
 });
